@@ -3,11 +3,8 @@ const sortedContainers = sortable(".js-sortable-items", {
   connectWith: 'connected'
 });
 
-$("form.update-all").on("submit", function(event){
-  event.preventDefault();
-  console.log("prevented ", event.target, " from submitting");
-  var $currentForm = $(event.target);
-
+var manualSubmit = function(form){
+  var $currentForm = $(form);
   var save = $currentForm.find("span.save");
   save.toggleClass("hidden");
   console.log("toggle save message", save);
@@ -26,17 +23,20 @@ $("form.update-all").on("submit", function(event){
       save.toggleClass("hidden");
     }
   });
-});
+};
 
 sortedContainers[0].addEventListener("sortupdate", function(e) {    
     // save & submit form 1
     $startForm = $(e.detail.startparent).parents("form");
     console.log("submitting startForm", $startForm)
-    $startForm.submit();
+    // $startForm.submit();
+    manualSubmit($startForm);
+
     // save & submit form 2
     $endForm = $(e.detail.endparent).parents("form");
     console.log("submitting endForm", $endForm)
-    $endForm.submit();
+    // $endForm.submit();
+    manualSubmit($endForm);
 });
 
 var myClick = function(){
@@ -81,4 +81,17 @@ var addItemFn = function(event) {
   currentInput.val("");
 };
 
-$("form.add-item").on("submit", addItemFn)
+$("form.add-item").on("submit", addItemFn);
+
+
+var listTitle = function(event){
+  
+  var target = $( event.target );
+  console.log("clicked on title", target);
+  target.parents(".list").find("input.list-name-change").toggleClass("hidden");
+  target.toggleClass("hidden");
+};
+
+$("div.list-header").click(listTitle);
+
+

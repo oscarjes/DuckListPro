@@ -113,6 +113,17 @@ form.add-item {
   above is starter code
 */
 
+input.list-name-change{
+  width: 230px;
+  margin-top: 10px;
+  margin-left: 10px;
+  margin-bottom: 10px;
+  border: none;
+  line-height: 12px;
+  font-size: 12px;
+  background-color: transparent;
+}
+
 input.list-name-input{
   width: 230px;
   margin-bottom: 10px;
