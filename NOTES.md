@@ -52,3 +52,5 @@ A few things you can play with:
 ## Improvements
 
 See the [Assignment 3](http://learning.coderschool.vn/courses/_bootcamp_ruby/unit/3#!assignment) page for the list of items you can work on. Rename this file to `NOTES.md` and create a new `README.md` file with the user stories listed there (and mark the ones completed).
+
+Harley's final version For inspiration: https://br1-hwk3.herokuapp.com/

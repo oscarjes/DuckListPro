@@ -1,25 +1,84 @@
 const sortedContainers = sortable(".js-sortable-items", {
-  forcePlaceholderSize: true
+  forcePlaceholderSize: true,
+  connectWith: 'connected'
 });
 
-sortedContainers.forEach(function(element) {
-  element.addEventListener("sortupdate", function(e) {
-    console.log("We will learn how to save this dynamically");
-    $("button.save").removeClass("hidden");
-    /*
+$("form.update-all").on("submit", function(event){
+  event.preventDefault();
+  console.log("prevented ", event.target, " from submitting");
+  var $currentForm = $(event.target);
 
-    This event is triggered when the user stopped sorting and the DOM position has changed.
-
-    e.detail.item contains the current dragged element.
-    e.detail.index contains the new index of the dragged element (considering only list items)
-    e.detail.oldindex contains the old index of the dragged element (considering only list items)
-    e.detail.elementIndex contains the new index of the dragged element (considering all items within sortable)
-    e.detail.oldElementIndex contains the old index of the dragged element (considering all items within sortable)
-    e.detail.startparent contains the element that the dragged item comes from
-    e.detail.endparent contains the element that the dragged item was added to (new parent)
-    e.detail.newEndList contains all elements in the list the dragged item was dragged to
-    e.detail.newStartList contains all elements in the list the dragged item was dragged from
-    e.detail.oldStartList contains all elements in the list the dragged item was dragged from BEFORE it was dragged from it
-    */
+  var save = $currentForm.find("span.save");
+  save.toggleClass("hidden");
+  console.log("toggle save message", save);
+  data = $currentForm.serializeArray();
+  console.log("ajax with data", data);
+  $.ajax({
+    url: $currentForm.attr("action"),
+    method: $currentForm.attr("method"),
+    data: data,
+    success: function(e){
+      console.log("ajax success");
+      save.toggleClass("hidden");
+    },
+    error: function(e){
+      alert("ajax error");
+      save.toggleClass("hidden");
+    }
   });
 });
+
+sortedContainers[0].addEventListener("sortupdate", function(e) {    
+    // save & submit form 1
+    $startForm = $(e.detail.startparent).parents("form");
+    console.log("submitting startForm", $startForm)
+    $startForm.submit();
+    // save & submit form 2
+    $endForm = $(e.detail.endparent).parents("form");
+    console.log("submitting endForm", $endForm)
+    $endForm.submit();
+});
+
+var myClick = function(){
+  $(".add-list-inputs").toggleClass("hidden");
+  $(".add-a-list").toggleClass("hidden");
+}
+
+$(".js-add-a-list").click(myClick)
+
+var myClick2 = function(){
+  $(".add-list-inputs").toggleClass("hidden");
+  $(".js-add-a-list").toggleClass("hidden");
+}
+
+$(".js-cancel-input").click(myClick2)
+
+$(".width").click(function(event) {
+  if (event.target == event.currentTarget) {
+      $(".add-list-inputs").addClass("hidden");
+      $(".js-add-a-list").removeClass("hidden");
+  }
+});
+
+var addItemFn = function(event) {
+  console.log("submitting the form", event.target);
+  event.preventDefault();
+  var $currentForm = $(event.target);
+  data = $currentForm.serializeArray();
+  console.log("ajax with data", data);
+  $.ajax({
+    url: $currentForm.attr("action"),
+    method: $currentForm.attr("method"),
+    data: data
+  });
+
+  newItem = $currentForm.find("input.new-item").val();
+  newItemLi = `<li class="undone">${newItem}<input type="hidden" value="${newItem}" name="items[][name]"><input type="hidden" value="undone" name="items[][status]"><button type="submit" name="toggle" value="${newItem}" class="toggle undone">Done</button></li>`;
+
+  $currentForm.siblings("form.update-all").children("ul.js-sortable-items").append(newItemLi);
+  
+  var currentInput = $currentForm.children("input.new-item");
+  currentInput.val("");
+};
+
+$("form.add-item").on("submit", addItemFn)

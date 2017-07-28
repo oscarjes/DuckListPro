@@ -2,18 +2,18 @@
 
 ### Check what's already done in your starting app:
 
-- [ ] User can see the list of Todo items on the home page
-- [ ] The Todo list and items should look similar to Trello Lists and Cards (free free to customize any color)
-- [ ] User can click a Done button next to an undone item to complete it
-- [ ] User can click an Undo button next to a done item to undo it
+- [x] User can see the list of Todo items on the home page
+- [x] The Todo list and items should look similar to Trello Lists and Cards (free free to customize any color)
+- [x] User can click a Done button next to an undone item to complete it
+- [x] User can click an Undo button next to a done item to undo it
 
 ### Check new features
 
-- [ ] User can create a new List so that she can maintain more than one list horizontally
-- [ ] User can cancel the list form after clicking on the "Add a list" text
-- [ ] User can add a new item by clicking on "Add an item..." and can click Cancel if desired
-- [ ] User can drag to re-order items in a list and the list saves automatically
-- [ ] User can drag an item from one list to another and both lists save automatically
+- [x] User can create a new List so that she can maintain more than one list horizontally
+- [x] User can cancel the list form after clicking on the "Add a list" text
+- [x] User can add a new item by clicking on "Add an item..." and can click Cancel if desired
+- [x] User can drag to re-order items in a list and the list saves automatically
+- [x] User can drag an item from one list to another and both lists save automatically
 
 **Optional User Stories:**
 

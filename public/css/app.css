@@ -1,3 +1,7 @@
+* { 
+  box-sizing: border-box;
+}
+
 body {
   font-family: Sans-serif;
 }
@@ -27,6 +31,9 @@ li.done {
   padding: 5px;
   width: 250px;
   font-size: 0.8em;
+  float: left;
+  margin-right: 10px;
+  border-radius: 4px;
 }
 .list-header {
   font-weight: bold;
@@ -100,4 +107,59 @@ button.hidden {
 form.update-all,
 form.add-item {
   margin-bottom: 0;
+}
+
+/* 
+  above is starter code
+*/
+
+input.list-name-input{
+  width: 230px;
+  margin-bottom: 10px;
+  border: none;
+  line-height: 14px;
+  font-size: 14px;
+  background-color: transparent;
+}
+
+input:focus {
+    outline: none;
+}
+
+.add-list-inputs{
+  float: left;
+  margin-left: 5px;
+  margin-top: 5px;
+}
+
+span.add-a-list{
+  padding: 10px;
+  display: inline-block;
+  width: 240px;
+}
+
+form.list-form{
+  margin-bottom: 0px;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+span.cancel-input{
+  cursor: pointer;
+}
+
+.hidden{
+  display: none;
+}
+
+span.hidden{
+  display: none;
+}
+
+div.width{
+ width: 10000px;
+}
+
+span.save{
+  font-style: italic;
 }

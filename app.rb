@@ -11,9 +11,8 @@ get "/" do
   # HINT: you can use instance variables in the view directly without passing to locals
   # such as this @title instance variable
   @title = "Your App Name"
-  list = List.new("0")
-  list.load_from_file
-  erb :"index.html", locals: {list: list}, layout: :"layout.html"
+  lists = List.load_all
+  erb :"index.html", locals: {lists: lists}, layout: :"layout.html"
 end
 
 # UPDATE a list with id from params["id"]
@@ -49,5 +48,13 @@ post "/lists/:id/items/add" do
     list.add(params["name"])
     list.save!
   end
+  redirect back
+end
+
+post "/lists" do
+  debug_params
+  list = List.new(params["id"])
+  list.name = params["list-name"]
+  list.save!
   redirect back
 end
