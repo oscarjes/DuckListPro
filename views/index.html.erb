@@ -5,12 +5,12 @@
     <div class="list">
       <form class="update-all" action="lists/update" method="post">
         <input class="list-id" type="hidden" name="id" value="<%= list.id %>">
-        <input class="js-trash-list" type="hidden" name="js-trash-list" value="">
+        <input class="js-trash-list" type="hidden" name="js-trash-list" value="0">
         <input class="list-name-change hidden" type="text" name="name" value="<%= list.name %>" placeholder="List name..." autofocus>
         <div class="list-header-container">
           <div class="list-header"><%= list.name %></div>
           <div class="trash-list">
-            <input class="trash-list" type="image" src="images/trash.png" name="trash-list">
+            <image class="trash-list" src="images/trash.png">
           </div>
           <div name="list-menu">
             <span class="save hidden">Saving...</span>
@@ -32,10 +32,10 @@
   <span class="add-a-list js-add-a-list">Add a list...</span>
   <div class="add-list-inputs hidden">
     <form class="list-form" action="lists" method="post">
-    <input class="list-name-input" type="text" name="list-name" placeholder="List name..." autofocus>
-    <input type="hidden" name="id" value="<%= lists.length %>">
-    <button class="save-button">Save</button>
-    <span class="cancel-input js-cancel-input">x</span>
+      <input class="list-name-input" type="text" name="list-name" placeholder="List name..." autofocus>
+      <input type="hidden" name="id" value="<%= lists.length %>">
+      <button class="save-button">Save</button>
+      <span class="cancel-input js-cancel-input">x</span>
     </form>
   </div>
 </div>

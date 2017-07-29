@@ -113,23 +113,20 @@ var deleteList = function(event){
   event.preventDefault();
   $target = $(event.target);
   list = $target.parents("div.list");
+  // mark list for deletion
+  list.find(".js-trash-list").val("1");
+  // submit form so that backend knows to delete it
+  var $form = $(list.find("form.update-all"))
+  manualSubmit($form);
+  // remove in the frontend
+  console.log("deleting list:", list)
   list.remove();
 
+  // update list id based on the new ordering & submit
   Array.from($("form.update-all")).forEach(function(elem, index) {
     form = $(elem);
-    // update list id based on the new ordering
     form.find(".list-id").val(index);
-  });
-
-  Array.from($("form.update-all:last")).forEach(function(elem) {
-  form = $(elem);
-  // update list id based on the new ordering
-  form.find(".js-trash-list").val("1");
-  });
-
-  Array.from($("form.update-all")).forEach(function(elem) {
-  form = $(elem);
-  manualSubmit(form);
+    manualSubmit(form);
   });
 };
 
