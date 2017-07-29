@@ -17,11 +17,12 @@
 
 **Optional User Stories:**
 
-- [ ] User can rename a list. For example “Today” to “Inbox”
+- [x] User can rename a list. For example “Today” to “Inbox”
 - [ ] User can delete an item
 - [ ] User can delete a list
-- [ ] User can rename the current's list's name
+- [x] User can rename the current's list's name
 
 **Additional User Stories:**
 
-Feel free to add any more enhancements that you made here.
+- [x] New items are added without the need for reloading the page
+- [x] User can re-order lists using drag & drop and their position gets saved automatically

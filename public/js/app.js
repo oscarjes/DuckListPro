@@ -3,6 +3,11 @@ const sortedContainers = sortable(".js-sortable-items", {
   connectWith: 'connected'
 });
 
+const sortedContainerLists = sortable(".js-sortable-lists", {
+  forcePlaceholderSize: true,
+  placeholderClass: "sortable-lists-placeholder"
+});
+
 var manualSubmit = function(form){
   var $currentForm = $(form);
   var save = $currentForm.find("span.save");
@@ -37,6 +42,17 @@ sortedContainers[0].addEventListener("sortupdate", function(e) {
     console.log("submitting endForm", $endForm)
     // $endForm.submit();
     manualSubmit($endForm);
+});
+
+sortedContainerLists[0].addEventListener("sortupdate", function(e) {    
+    console.log("reordered lists");
+
+    Array.from($("form.update-all")).forEach(function(elem, index) {
+        form = $(elem);
+        // update list id based on the new ordering
+        form.find(".list-id").val(index);
+        manualSubmit(form);
+    });
 });
 
 var myClick = function(){
@@ -83,7 +99,6 @@ var addItemFn = function(event) {
 
 $("form.add-item").on("submit", addItemFn);
 
-
 var listTitle = function(event){
   
   var target = $( event.target );
@@ -93,5 +108,3 @@ var listTitle = function(event){
 };
 
 $("div.list-header").click(listTitle);
-
-

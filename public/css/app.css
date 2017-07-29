@@ -25,6 +25,7 @@ li.done {
   text-decoration: line-through;
   color: #999;
 }
+
 .list {
   background-color: #efefef;
   color: #666;
@@ -35,6 +36,13 @@ li.done {
   margin-right: 10px;
   border-radius: 4px;
 }
+
+div.sortable-lists-placeholder{
+  width: 250px;
+  background-color: lightblue;
+  float: left;
+}
+
 .list-header {
   font-weight: bold;
   padding: 5px;
