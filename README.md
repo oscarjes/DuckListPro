@@ -18,8 +18,8 @@
 **Optional User Stories:**
 
 - [x] User can rename a list. For example “Today” to “Inbox”
-- [ ] User can delete an item
-- [ ] User can delete a list
+- [x] User can delete an item
+- [x] User can delete a list
 - [x] User can rename the current's list's name
 
 **Additional User Stories:**

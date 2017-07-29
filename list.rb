@@ -41,6 +41,7 @@ class List
 
   def self.load_all
     lists = Array.new
+
     Dir["data/*.md"].each do |file|
       id = File.basename(file).to_i
       list = List.new(id)
@@ -49,4 +50,9 @@ class List
     end
     lists
   end
+
+  def self.delete_list
+    File.delete(Dir["data/*.md"][-1])
+  end
+
 end

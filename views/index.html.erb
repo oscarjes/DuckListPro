@@ -5,16 +5,20 @@
     <div class="list">
       <form class="update-all" action="lists/update" method="post">
         <input class="list-id" type="hidden" name="id" value="<%= list.id %>">
+        <input class="js-trash-list" type="hidden" name="js-trash-list" value="">
         <input class="list-name-change hidden" type="text" name="name" value="<%= list.name %>" placeholder="List name..." autofocus>
         <div class="list-header-container">
           <div class="list-header"><%= list.name %></div>
+          <div class="trash-list">
+            <input class="trash-list" type="image" src="images/trash.png" name="trash-list">
+          </div>
           <div name="list-menu">
             <span class="save hidden">Saving...</span>
           </div>
         </div>
         <ul class="js-sortable-items">
           <% list.items.each_with_index do |item, index| %>
-            <%= erb :"shared/_item.html", locals: {item: item} %>
+            <%= erb :"shared/_item.html", locals: {item: item, index: index} %>
           <% end %>
         </ul>
       </form>

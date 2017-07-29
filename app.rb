@@ -34,6 +34,15 @@ post "/lists/update" do
     list.toggle_item(params["toggle"])
   end
 
+  if params["trash"]
+    list.items.delete_at(params["trash"].to_i)
+  end
+
+  if params["js-trash-list"] == "1"
+    List.delete_list
+    redirect back
+  end
+
   list.save!
   redirect back
 end

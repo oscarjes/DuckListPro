@@ -89,7 +89,7 @@ var addItemFn = function(event) {
   });
 
   newItem = $currentForm.find("input.new-item").val();
-  newItemLi = `<li class="undone">${newItem}<input type="hidden" value="${newItem}" name="items[][name]"><input type="hidden" value="undone" name="items[][status]"><button type="submit" name="toggle" value="${newItem}" class="toggle undone">Done</button></li>`;
+  newItemLi = `<li class="undone">${newItem}<div class="trash"><input class="trash" type="image" src="images/trash.png" name="trash" value=""></div><input type="hidden" value="${newItem}" name="items[][name]"><input type="hidden" value="undone" name="items[][status]"><button type="submit" name="toggle" value="${newItem}" class="toggle undone">Done</button></li>`;
 
   $currentForm.siblings("form.update-all").children("ul.js-sortable-items").append(newItemLi);
   
@@ -108,3 +108,29 @@ var listTitle = function(event){
 };
 
 $("div.list-header").click(listTitle);
+
+var deleteList = function(event){
+  event.preventDefault();
+  $target = $(event.target);
+  list = $target.parents("div.list");
+  list.remove();
+
+  Array.from($("form.update-all")).forEach(function(elem, index) {
+    form = $(elem);
+    // update list id based on the new ordering
+    form.find(".list-id").val(index);
+  });
+
+  Array.from($("form.update-all:last")).forEach(function(elem) {
+  form = $(elem);
+  // update list id based on the new ordering
+  form.find(".js-trash-list").val("1");
+  });
+
+  Array.from($("form.update-all")).forEach(function(elem) {
+  form = $(elem);
+  manualSubmit(form);
+  });
+};
+
+$("div.trash-list").click(deleteList);
