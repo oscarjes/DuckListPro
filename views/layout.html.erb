@@ -1,10 +1,19 @@
 <html>
   <head>
-    <title>Todo App - First Edition</title>
+    <title>DuckListPro</title>
     <link rel="stylesheet" href="/css/app.css">
+    <link rel="stylesheet" href="/css/header.css">
     <link rel="stylesheet" href="/css/sorting.css">
+    <link rel="shortcut icon" href="images/favicon.ico" type="images/x-icon">
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
   </head>
-  <body style="background-color: rgb(0, 121, 191)">
+  <body style="background-color: #fd7e47">
+  <div id="header">
+      <a href="/" class="header-logo">
+        <img class="logo" src="/images/ducky_128.png" alt="logo">
+        DuckListPro
+      </a>
+  </div>
     <%= yield %>
 
     <!-- putting all js files at the bottom of body -->

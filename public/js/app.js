@@ -24,7 +24,7 @@ var manualSubmit = function(form){
       save.toggleClass("hidden");
     },
     error: function(e){
-      alert("ajax error");
+      console.log("ajax error");
       save.toggleClass("hidden");
     }
   });
@@ -89,7 +89,7 @@ var addItemFn = function(event) {
   });
 
   newItem = $currentForm.find("input.new-item").val();
-  newItemLi = `<li class="undone">${newItem}<div class="trash"><input class="trash" type="image" src="images/trash.png" name="trash" value=""></div><input type="hidden" value="${newItem}" name="items[][name]"><input type="hidden" value="undone" name="items[][status]"><button type="submit" name="toggle" value="${newItem}" class="toggle undone">Done</button></li>`;
+  newItemLi = `<li class="undone">${newItem}<div class="trash hidden"><input class="trash" type="image" src="images/trash_orange.png" name="trash" value=""></div><input type="hidden" value="${newItem}" name="items[][name]"><input type="hidden" value="undone" name="items[][status]"><div class="button hidden"><button type="submit" name="toggle" value="${newItem}" class="toggle undone">Done</button></div></li>`;
 
   $currentForm.siblings("form.update-all").children("ul.js-sortable-items").append(newItemLi);
   
@@ -131,3 +131,36 @@ var deleteList = function(event){
 };
 
 $("div.trash-list").click(deleteList);
+
+
+$("input.trash").mouseenter(function(){
+  $(this).addClass("rotate")
+  }).mouseout( function(){
+  $(this).removeClass("rotate")
+});
+
+$("div.trash-list").mouseenter(function(){
+  $(this).addClass("rotate")
+  }).mouseout( function(){
+  $(this).removeClass("rotate")
+});
+
+$("li").mouseover(function(){
+  $(this).children("div.trash").removeClass("hidden");
+  $(this).children("div.button").removeClass("hidden");
+  }).mouseout( function(){
+  $(this).children("div.trash").addClass("hidden");
+  $(this).children("div.button").addClass("hidden");
+});
+
+$("div.list-header-container").mouseover(function(){
+  $(this).children("div.trash-list").removeClass("hidden");
+  }).mouseout( function(){
+  $(this).children("div.trash-list").addClass("hidden");
+});
+
+$("img.logo").mouseenter(function(){
+  $(this).addClass("rotate360")
+  }).mouseout( function(){
+  $(this).removeClass("rotate360")
+});

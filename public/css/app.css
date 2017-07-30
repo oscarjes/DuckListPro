@@ -3,7 +3,8 @@
 }
 
 body {
-  font-family: Sans-serif;
+  font-family: helvetica;
+  padding-left: 5px;
 }
 h1 {
   color: #efefef;
@@ -17,9 +18,11 @@ li {
   border: 1px solid #efefef;
   margin: 4px;
   padding: 6px;
+  padding-top: 9px;
   background-color: white;
   border-radius: 4px;
   box-shadow: 0 1px 0 #ccc;
+  height: 35px;
 }
 li.done {
   text-decoration: line-through;
@@ -27,10 +30,10 @@ li.done {
 }
 
 .list {
-  background-color: #efefef;
+  background-color: #e2e4e6;
   color: #666;
   padding: 5px;
-  width: 250px;
+  width: 275px;
   font-size: 0.8em;
   float: left;
   margin-right: 10px;
@@ -38,9 +41,11 @@ li.done {
 }
 
 div.sortable-lists-placeholder{
-  width: 250px;
-  background-color: lightblue;
+  width: 275px;
+  background-color: #666;
   float: left;
+  border-radius: 4px;
+  margin-right: 10px;
 }
 
 .list-header {
@@ -51,8 +56,17 @@ button.toggle {
   float: right;
 }
 button {
+  color: white;
+  border: 0px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 3px;
+  text-align: center;
+  width: 45px;
+  /*
   color: #efefef;
   border: 1px solid #efefef;
+  */
   cursor: pointer;
   margin-top: -17px;
 }
@@ -65,20 +79,21 @@ button.done {
 input.new-item {
   background-color: transparent;
   border: none;
-  margin-left: 5px;
+  margin-left: 7px;
   margin-right: 5px;
   outline: none;
   font-size: 1em;
-  width: calc(100% - 10px);
+  width: calc(100% - 13px);
   box-sizing: border-box;
+  height: 25px;
+  color: #666;
 }
 input.new-item:focus {
+  outline: none;
+  border-radius: 3px;
+  padding-left: 5px;
+  color: #666;
   background-color: white;
-  padding: 5px;
-  padding-bottom: 15px;
-  border-radius: 4px;
-  margin-bottom: 5px;
-  box-shadow: 0 1px 0 #ccc;
 }
 
 a.sort-link img {
@@ -102,12 +117,21 @@ a.sort-link.current img {
   justify-content: space-between;
   align-items: center;
   margin-right: 5px;
+  margin-left: 5px;
+  font-size: 1.1em;
 }
 
 button.save {
   vertical-align: top;
   background-color: rgba(0, 121, 191, 0.5);
 }
+
+button.save-button {
+  vertical-align: top;
+  background-color: rgba(0, 121, 191, 0.5);
+  margin-top: 2px;
+}
+
 button.hidden {
   display: none;
 }
@@ -128,17 +152,24 @@ input.list-name-change{
   margin-bottom: 10px;
   border: none;
   line-height: 12px;
-  font-size: 12px;
+  font-size: 1em;
+  font-weight: bold;
   background-color: transparent;
+  color: #666;
+
 }
 
 input.list-name-input{
   width: 230px;
   margin-bottom: 10px;
+  margin-top: 2px;
+  margin-left: 2px;
   border: none;
-  line-height: 14px;
-  font-size: 14px;
+  line-height: 1em;
   background-color: transparent;
+  color: #666;
+  font-size: 1em;
+  font-weight: bold;
 }
 
 input:focus {
@@ -155,6 +186,12 @@ span.add-a-list{
   padding: 10px;
   display: inline-block;
   width: 240px;
+  color: #666;
+  font-size: 1.1em;
+}
+
+div.new-list{
+  cursor: pointer;
 }
 
 form.list-form{
@@ -165,6 +202,8 @@ form.list-form{
 
 span.cancel-input{
   cursor: pointer;
+  font-size: large;
+  padding-left: 10px;
 }
 
 .hidden{
@@ -184,18 +223,27 @@ span.save{
 }
 
 .trash{
-  width: 15px;
-  margin-left: 75px;
+  width: 13px;
+  margin-left: 85px;
   margin-top: -7px;
   box-sizing: border-box;
   background: white;
 }
 
 .trash-list{
-  background-color: #efefef;
+  background-color: transparent;
   width: 15px;
-  margin-right: 125px;
   box-sizing: border-box;
-  float: left;
+  float: center;
   cursor: pointer;
+}
+
+.rotate{
+  transform: rotate(35deg);
+  transition-duration: 1s;
+}
+
+.rotate360{
+  transform: rotate(360deg);
+  transition-duration: 3s;
 }

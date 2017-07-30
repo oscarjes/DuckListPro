@@ -1,12 +1,14 @@
 <li class="<%= item.status %>">
   <%= item.name %>
-    <div class="trash">
-      <input class="trash" type="image" src="images/trash.png" name="trash" value="<%= index %>">
+    <div class="trash hidden">
+      <input class="trash" type="image" src="images/trash_orange.png" name="trash" value="<%= index %>">
     </div>
   <input type="hidden" value="<%= item.name %>" name="items[][name]">
   <input type="hidden" value="<%= item.status %>" name="items[][status]">
-  <button type="submit" name="toggle" value="<%= item.name %>"
-    class="toggle <%= item.status %>">
-    <%= item.done? ? "Undo" : "Done" %>
-  </button>
+  <div class="button hidden">
+    <button type="submit" name="toggle" value="<%= item.name %>"
+      class="toggle <%= item.status %>">
+      <%= item.done? ? "Undo" : "Done" %>
+    </button>
+  </div>
 </li>

@@ -1,4 +1,3 @@
-<h1 id="heading"><%= @title || "Torello" %></h1>
 <div class="width">
   <div class="js-sortable-lists">
     <% lists.each do |list| %>
@@ -9,8 +8,8 @@
         <input class="list-name-change hidden" type="text" name="name" value="<%= list.name %>" placeholder="List name..." autofocus>
         <div class="list-header-container">
           <div class="list-header"><%= list.name %></div>
-          <div class="trash-list">
-            <image class="trash-list" src="images/trash.png">
+          <div class="trash-list hidden">
+            <image class="trash-list" src="images/trash_orange.png">
           </div>
           <div name="list-menu">
             <span class="save hidden">Saving...</span>
