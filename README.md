@@ -1,3 +1,10 @@
+#DuckListPro
+
+Trello-Inspired ToDo App.
+
+![](ducklistpro.gif)
+
+
 **Required User Stories:**
 
 ### Check what's already done in your starting app:
@@ -24,5 +31,5 @@
 
 **Additional User Stories:**
 
-- [x] New items are added without the need for reloading the page
+- [x] User can add items without reloading the page
 - [x] User can re-order lists using drag & drop and their position gets saved automatically
