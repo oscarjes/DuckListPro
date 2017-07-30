@@ -2,7 +2,7 @@
 
 Trello-Inspired ToDo App.
 
-![](ducklistpro.gif)
+![](DuckListPro.gif)
 
 
 **Required User Stories:**
